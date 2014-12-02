@@ -28,6 +28,4 @@ node_modules
 .lock-wscript
 *.sublime-workspace
 /typings/mykoop*
-
-# FIXME:: Change this with new module name
-!/typings/mykoop-mymodule
+!/typings/mykoop-volunteer

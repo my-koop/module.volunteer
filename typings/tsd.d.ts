@@ -6,6 +6,4 @@
 /// <reference path="express/express.d.ts" />
 /// <reference path="async/async.d.ts" />
 /// <reference path="mysql/mysql.d.ts" />
-
-// FIXME::CHANGE THIS TO NEW MODULE NAME
-/// <reference path="mykoop-mymodule/mykoop-mymodule.d.ts" />
+/// <reference path="mykoop-volunteer/mykoop-volunteer.d.ts" />

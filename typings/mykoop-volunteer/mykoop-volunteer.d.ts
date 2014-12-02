@@ -4,18 +4,8 @@
 // Definitions: https://github.com/my-koop/type.definitions
 
 /// <reference path="../mykoop/mykoop.d.ts" />
-declare module mkmymodule {
-
-  export interface ModuleClass1 {
-    value: string;
-    id: number;
-  }
+declare module mkvolunteer {
   export interface Module extends mykoop.IModule {
-    method1(
-      inParam: {id:number; value:string},
-      callback: (err: Error, res ?: ModuleClass1) => void
-    ): void;
   }
-
 }
 

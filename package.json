@@ -1,25 +1,27 @@
 {
-  "name": "mykoop-template",
-  "role": "template",
+  "name": "mykoop-volunteer",
+  "role": "volunteer",
   "mykoop": {
-    "dependencies": {}
+    "dependencies": {
+      "database": "^1.0.0"
+    }
   },
-  "version": "1.0.0-rc",
-  "description": "Template module for My Koop",
+  "version": "1.0.0",
+  "description": "volunteer module for My Koop",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/my-koop/module-template.git"
+    "url": "https://github.com/my-koop/module.volunteer.git"
   },
   "author": "",
   "license": "GNU GPL v2",
   "bugs": {
-    "url": "https://github.com/my-koop/module-template/issues"
+    "url": "https://github.com/my-koop/module.volunteer/issues"
   },
-  "homepage": "https://github.com/my-koop/module-template",
+  "homepage": "https://github.com/my-koop/module.volunteer",
   "dependencies": {
     "async": "^0.9.0",
     "mykoop-logger": "git://github.com/my-koop/module.logger",
