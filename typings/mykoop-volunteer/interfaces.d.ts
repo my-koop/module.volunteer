@@ -11,7 +11,13 @@ declare module AvailabilityInterfaces {
 
   export interface UpdateAvailabilityData {
     idAvailability  : number;
-    idUser          : string;
+    idUser          : number;
+    startDate       : Date;
+    endDate         : Date;
+  }
+
+  export interface AddAvailabilityData {
+    idUser          : number;
     startDate       : Date;
     endDate         : Date;
   }

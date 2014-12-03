@@ -22,6 +22,11 @@ declare module mkvolunteer {
       getAvailabilitiesData: AvailabilityInterfaces.GetAvailabilitiesData,
       callback: (err: Error, result?: Availability[]) => void
     );
+
+    addAvailability(
+      addAvailabilityData: AvailabilityInterfaces.AddAvailabilityData, 
+      callback: (err?: Error) => void
+    );
   }
 
   export interface Availability {

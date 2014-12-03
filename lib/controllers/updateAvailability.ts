@@ -7,6 +7,7 @@ function updateAvailability(req: express.Request, res: express.Response) {
   var self: mkvolunteer.Module = this;
   var data = {
     idAvailability      : Number(req.param("idAvailability")),
+    idUser              : Number(req.param("idUser")),
     startDate           : req.param("startDate") ? new Date(req.param("startDate")) : null,
     endDate             : req.param("endDate") ? new Date(req.param("endDate")) : null,
   };

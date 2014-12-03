@@ -87,7 +87,7 @@ var Events = React.createClass({
             self.setState({
               events: events
             });
-            MKAlertTrigger.showAlert(__("event::removedAvailabilityMessage") + ": " + availability.startDate + " - " + availability.endDate);
+            MKAlertTrigger.showAlert(__("event::removedAvailabilityMessage") + ":<br/> " + availability.startDate + " - " + availability.endDate);
           });
         }
       }
@@ -102,28 +102,24 @@ var Events = React.createClass({
     // TableSorter Config
     var CONFIG = {
       defaultOrdering: [
-        "name",
-        "type",
+        "idUser",
         "startDate",
-        "actions"
+        "endDate"
       ],
       columns: {
-        name: {
-          name: __("name"),
-        },
-        type: {
-          name: __("event::type"),
-          cellGenerator: function(event) {
-            return __("event::" + event.type);
-          }
+        idUser: {
+          idUser: __("name"),
         },
         startDate: {
-          name: __("event::startDate"),
+          name: __("volunteer::startDate"),
+        },
+        endDate: {
+          name: __("volunteer::endDate"),
         },
         actions: {
           name: __("actions"),
           isStatic: true,
-          cellGenerator: function(event) {
+          cellGenerator: function(availability) {
             return (
               <MKListModButtons
                 defaultTooltipDelay={500}
@@ -140,7 +136,7 @@ var Events = React.createClass({
         <div>
           <MKTableSorter
             config={CONFIG}
-            items={this.state.events}
+            items={this.state.availabilities}
             striped
             bordered
             condensed

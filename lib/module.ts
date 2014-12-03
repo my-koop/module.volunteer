@@ -14,7 +14,7 @@ class Module extends utils.BaseModule implements mkvolunteer.Module {
   }
 
   updateAvailability(data: AvailabilityInterfaces.UpdateAvailabilityData, callback: (err?: Error) => void) {
-  	
+
   }
 
   getAvailabilities(data: AvailabilityInterfaces.GetAvailabilitiesData, callback: (err: Error, result?: Availability[]) => void) {
@@ -22,6 +22,10 @@ class Module extends utils.BaseModule implements mkvolunteer.Module {
   }
 
   getAvailability(data: AvailabilityInterfaces.GetAvailabilityData, callback: (err: Error, result?: Availability) => void) {
+
+  }
+
+  addAvailability(data: AvailabilityInterfaces.AddAvailabilityData, callback: (err?: Error) => void) {
 
   }
 
