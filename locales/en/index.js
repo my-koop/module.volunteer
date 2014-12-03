@@ -1,1 +1,4 @@
-exports.general = require("./general");
+module.exports = {
+  general: require("./general"),
+  volunteer: require("./volunteer")
+};
