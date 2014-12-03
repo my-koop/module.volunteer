@@ -1,11 +1,7 @@
 var endpoints = {
     availability: {
         list: {
-            path: "/availability/list",
-            method: "get"
-        },
-        listByUser: {
-            path: "/availability/user/:idUser/list",
+            path: "/availability/list/:idUser/:startDate/:endDate",
             method: "get"
         },
         update: {
@@ -25,11 +21,11 @@ var endpoints = {
             }
         },
         get: {
-            path: "/availability/:id",
+            path: "/availability/:idAvailability",
             method: "get"
         },
         remove: {
-            path: "/availability/:id",
+            path: "/availability/:idAvailability",
             method: "delete"
         }
     }
