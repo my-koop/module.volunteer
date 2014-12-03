@@ -1,4 +1,5 @@
 {
   startDate : "Date début",
   endDate : "Date fin",
+  editAvailabilityTooltip : "Éditer la disponibilité",
 }
