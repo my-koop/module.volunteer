@@ -23,6 +23,13 @@ export function attachControllers(
 
   binder.attach(
     {
+      endPoint: endPoints.availability.user.list
+    },
+    getAvailabilities
+  );
+
+  binder.attach(
+    {
       endPoint: endPoints.availability.update,
       validation: validation.availabilityObject
     },

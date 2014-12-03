@@ -50,8 +50,6 @@ class Module extends utils.BaseModule implements mkvolunteer.Module {
              availabilities.push(new Availability(rows[i]));
           }
 
-          console.log(availabilities);
-
           callback(null, availabilities);
       });
     });

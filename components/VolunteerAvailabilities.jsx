@@ -23,7 +23,6 @@ var VolunteerAvailabilities = React.createClass({
   componentWillMount: function() {
     var self = this;
 
-
     var functionCallback = function (err, res) {
       if (err) {
         MKAlertTrigger.showAlert(__("volunteer::error", {context: err.context}));
@@ -47,16 +46,16 @@ var VolunteerAvailabilities = React.createClass({
       endDate : null  //Fixme : Use date from datetimepicker,
     };
 
-    if(localSession.user && localSession.user.id != null){
-      data.idUser = localSession.user.id;
+    var hasAdminPermissions = true; //Fixme : user real value
+    if(data.idUser != null){
       actions.availability.user.list({
         data : data
       }, functionCallback);
+    }else if(hasAdminPermissions){
+      actions.availability.list({
+        data : data
+      }, functionCallback);
     }
-
-    actions.availability.list({
-      data : data
-    }, functionCallback);
   },
 
   actionsGenerator: function(availability) {

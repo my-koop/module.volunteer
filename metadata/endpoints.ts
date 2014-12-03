@@ -7,33 +7,33 @@ var endpoints = {
       },
     },
     list: {
-        path: "/availability/list/",
-        method: "get"
-      },
-      update: {
-        path: "/availability/update/",
-        method: "post",
-        validation: {
-          resolve: "validation",
-          value: "availabilityObject"
-        }
-      },
-      add: {
-        path: "/availability/",
-        method: "post",
-        validation: {
-          resolve: "validation",
-          value: "availabilityObject"
-        }
-      },
-      get: {
-        path: "/availability/:idAvailability",
-        method: "get"
-      },
-      remove: {
-        path: "/availability/:idAvailability",
-        method: "delete"
+      path: "/availability/list/",
+      method: "get"
+    },
+    update: {
+      path: "/availability/update/",
+      method: "post",
+      validation: {
+        resolve: "validation",
+        value: "availabilityObject"
       }
+    },
+    add: {
+      path: "/availability/",
+      method: "post",
+      validation: {
+        resolve: "validation",
+        value: "availabilityObject"
+      }
+    },
+    get: {
+      path: "/availability/:idAvailability",
+      method: "get"
+    },
+    remove: {
+      path: "/availability/:idAvailability",
+      method: "delete"
+    }
   }
 }
 export = endpoints;
