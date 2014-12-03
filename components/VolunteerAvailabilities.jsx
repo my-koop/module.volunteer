@@ -34,8 +34,8 @@ var VolunteerAvailabilities = React.createClass({
       var availabilities = res.availabilities;
 
       _.forEach(availabilities, function(availability) {
-        availability.startDate = formatDate(new Date(availability.startDate), "LLL"); //FIXME : Show hour
-        availability.endDate = formatDate(new Date(availability.startDate), "LLL"); //FIXME : Show hour
+        availability.startDate = formatDate(new Date(availability.startDate), "LLL");
+        availability.endDate = formatDate(new Date(availability.startDate), "LLL");
       });
 
       self.setState({availabilities: availabilities});
