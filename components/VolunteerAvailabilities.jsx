@@ -12,7 +12,7 @@ var localSession      = require("session").local;
 var router            = require("react-router");
 var getRouteName      = require("mykoop-utils/frontend/getRouteName");
 
-var Events = React.createClass({
+var VolunteerAvailabilities = React.createClass({
   getInitialState: function() {
     return {
       availabilities: []
@@ -22,26 +22,39 @@ var Events = React.createClass({
   componentWillMount: function() {
     var self = this;
 
-    actions.availability.list({
-      data : {
-        idUser : null,
-        startDate : null,
-        endDate : null
-      }
-    }, function (err, res) {
+
+    var functionCallback = function (err, res) {
       if (err) {
         MKAlertTrigger.showAlert(__("volunteer::error", {context: err.context}));
         console.error(err);
         return;
       }
 
+      var availabilities = res.availabilities;
+
       _.forEach(availabilities, function(availability) {
-        availability.startDate = formatDate(new Date(event.startDate));
-        availability.endDate = formatDate(new Date(event.startDate));
+        availability.startDate = formatDate(new Date(availability.startDate), "LLL"); //FIXME : Show hour
+        availability.endDate = formatDate(new Date(availability.startDate), "LLL"); //FIXME : Show hour
       });
 
       self.setState({availabilities: availabilities});
-    });
+    };
+
+    var data =  {
+      idUser : null, 
+      startDate : null, //Fixme : Use date from datetimepicker, 
+      endDate : null  //Fixme : Use date from datetimepicker,
+    };
+
+    if(localSession.user && localSession.user.id != null){
+      actions.availability.user.list({
+        data : data
+      }, functionCallback);
+    }
+
+    actions.availability.list({
+      data : data
+    }, functionCallback);
   },
 
   actionsGenerator: function(availability) {
@@ -59,7 +72,6 @@ var Events = React.createClass({
           }
         },
         callback: function(){
-          router.transitionTo(getRouteName(["updateAvailabilityPage"]), {id : availability.id})
         }
       },
       {
@@ -70,25 +82,6 @@ var Events = React.createClass({
           overlayProps: {placement: "top"}
         },
         callback: function() {
-          var id = availability.id;
-          actions.availability.remove(
-          {
-            data: {
-              id : id
-            }
-          }, function(err, res) {
-            if (err) {
-              console.error(err);
-              MKAlertTrigger.showAlert(__("errors::error", {context: err.context}));
-              return;
-            }
-            var events = self.state.events;
-            events.splice(i, 1);
-            self.setState({
-              events: events
-            });
-            MKAlertTrigger.showAlert(__("event::removedAvailabilityMessage") + ":<br/> " + availability.startDate + " - " + availability.endDate);
-          });
         }
       }
     );
@@ -104,7 +97,8 @@ var Events = React.createClass({
       defaultOrdering: [
         "idUser",
         "startDate",
-        "endDate"
+        "endDate",
+        "actions"
       ],
       columns: {
         idUser: {
@@ -148,4 +142,4 @@ var Events = React.createClass({
   }
 });
 
-module.exports = Events;
+module.exports = VolunteerAvailabilities;

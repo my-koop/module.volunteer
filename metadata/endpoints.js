@@ -1,7 +1,13 @@
 var endpoints = {
     availability: {
+        user: {
+            list: {
+                path: "/availability/user/list/:idUser",
+                method: "get"
+            },
+        },
         list: {
-            path: "/availability/list/:idUser/:startDate/:endDate",
+            path: "/availability/list/",
             method: "get"
         },
         update: {

@@ -14,18 +14,17 @@ export function attachControllers(
 ) {
   var volunteer = binder.moduleInstance;
 
-
   binder.attach(
     {
-      endPoint: endPoints.volunteer.list
+      endPoint: endPoints.availability.list
     },
     getAvailabilities
   );
 
   binder.attach(
     {
-      endPoint: endPoints.volunteer.update,
-      validation: validation.eventObject
+      endPoint: endPoints.availability.update,
+      validation: validation.availabilityObject
     },
     updateAvailability
   );
