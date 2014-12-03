@@ -31,7 +31,9 @@ class Module extends utils.BaseModule implements mkvolunteer.Module {
       var queryParams = [];
 
       var query = connection.query(
-        "SELECT * FROM availability " + 
+        "SELECT a.idAvailability, a.idUser, u.firstname as firstName, u.lastname as lastName, a.startDate, a.endDate  " +
+        "FROM availability a " +
+        "JOIN user u on u.id = a.idUser " + 
         "WHERE (CASE WHEN ? IS NOT NULL THEN idUser = ? ELSE true END) " + 
         "AND (CASE WHEN ? IS NOT NULL THEN startDate >= ? ELSE true END) " + 
         "AND (CASE WHEN ? IS NOT NULL THEN endDate <= ? ELSE true END) " + 
@@ -47,6 +49,8 @@ class Module extends utils.BaseModule implements mkvolunteer.Module {
           for (var i in rows) {
              availabilities.push(new Availability(rows[i]));
           }
+
+          console.log(availabilities);
 
           callback(null, availabilities);
       });

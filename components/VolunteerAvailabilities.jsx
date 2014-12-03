@@ -11,6 +11,7 @@ var formatDate        = require("language").formatDate;
 var localSession      = require("session").local;
 var router            = require("react-router");
 var getRouteName      = require("mykoop-utils/frontend/getRouteName");
+var Link              = require("react-router").Link;
 
 var VolunteerAvailabilities = React.createClass({
   getInitialState: function() {
@@ -41,12 +42,13 @@ var VolunteerAvailabilities = React.createClass({
     };
 
     var data =  {
-      idUser : null, 
+      idUser : this.props.params.idUser, 
       startDate : null, //Fixme : Use date from datetimepicker, 
       endDate : null  //Fixme : Use date from datetimepicker,
     };
 
     if(localSession.user && localSession.user.id != null){
+      data.idUser = localSession.user.id;
       actions.availability.user.list({
         data : data
       }, functionCallback);
@@ -102,7 +104,20 @@ var VolunteerAvailabilities = React.createClass({
       ],
       columns: {
         idUser: {
-          idUser: __("name"),
+          name: __("user"),
+          cellGenerator: function(availability, i) {
+            if(availability.idUser === null) return null;
+            return (
+              <div key={i}>
+                  <Link
+                    to={"volunteerAvailabilitiesByUser"}
+                    params={{idUser: availability.idUser}}
+                  >
+                    {availability.firstName + " " + availability.lastName}
+                  </Link>
+              </div>
+            );
+          }
         },
         startDate: {
           name: __("volunteer::startDate"),
