@@ -105,15 +105,22 @@ var VolunteerAvailabilities = React.createClass({
         idUser: {
           name: __("user"),
           cellGenerator: function(availability, i) {
-            if(availability.idUser === null) return null;
+            if(self.props.params.idUser == null){
+              var name = (
+                <Link
+                  to={"volunteerAvailabilitiesByUser"}
+                  params={{idUser: availability.idUser}}
+                >
+                  {availability.firstName + " " + availability.lastName}
+                </Link>
+              );
+            }else{
+              var name = availability.firstName + " " + availability.lastName
+            }
+
             return (
               <div key={i}>
-                  <Link
-                    to={"volunteerAvailabilitiesByUser"}
-                    params={{idUser: availability.idUser}}
-                  >
-                    {availability.firstName + " " + availability.lastName}
-                  </Link>
+                  {name}
               </div>
             );
           }
