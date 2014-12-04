@@ -6,6 +6,7 @@ class Availability implements mkvolunteer.Availability {
   public  lastName            : string;
   public  startDate           : Date;
   public  endDate             : Date;
+  public  fullName            : string;
 
   constructor(row: any) {
     this.id                  = Number(row.idAvailability);
@@ -14,6 +15,7 @@ class Availability implements mkvolunteer.Availability {
     this.endDate             = row.endDate;
     this.firstName           = row.firstName;
     this.lastName            = row.lastName;
+    this.fullName            = this.firstName + " " + this.lastName;
   }
 }
 

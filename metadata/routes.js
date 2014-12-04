@@ -1,15 +1,19 @@
 function addRoutes(metaData) {
     metaData.addFrontendRoute({
+        idPath: ["dashboard", "volunteer"],
+        path: "volunteer/",
+    });
+    metaData.addFrontendRoute({
         idPath: ["dashboard", "volunteer", "volunteerAvailabilities"],
-        component: "VolunteerAvailabilities",
+        component: "VolunteerAvailabilitiesPage",
         name: "volunteerAvailabilities",
-        path: "volunteer/list/",
+        path: "list/",
     });
     metaData.addFrontendRoute({
         idPath: ["dashboard", "volunteer", "volunteerAvailabilitiesByUser"],
-        component: "VolunteerAvailabilities",
+        component: "VolunteerAvailabilitiesPage",
         name: "volunteerAvailabilitiesByUser",
-        path: "volunteer/list/user/:idUser",
+        path: "list/user/:idUser",
     });
 }
 exports.addRoutes = addRoutes;

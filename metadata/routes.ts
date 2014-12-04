@@ -1,16 +1,21 @@
 import utils = require("mykoop-utils");
 export function addRoutes(metaData: utils.MetaDataBuilder) {
   metaData.addFrontendRoute({
+    idPath: ["dashboard", "volunteer"],
+    path: "volunteer/",
+  });
+
+  metaData.addFrontendRoute({
     idPath: ["dashboard", "volunteer", "volunteerAvailabilities"],
-    component: "VolunteerAvailabilities",
+    component: "VolunteerAvailabilitiesPage",
     name: "volunteerAvailabilities",
-    path: "volunteer/list/",
+    path: "list/",
   });
 
   metaData.addFrontendRoute({
     idPath: ["dashboard", "volunteer", "volunteerAvailabilitiesByUser"],
-    component: "VolunteerAvailabilities",
+    component: "VolunteerAvailabilitiesPage",
     name: "volunteerAvailabilitiesByUser",
-    path: "volunteer/list/user/:idUser",
+    path: "list/user/:idUser",
   });
 }

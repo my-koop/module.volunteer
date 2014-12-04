@@ -13,7 +13,7 @@ var router            = require("react-router");
 var getRouteName      = require("mykoop-utils/frontend/getRouteName");
 var Link              = require("react-router").Link;
 
-var VolunteerAvailabilities = React.createClass({
+var VolunteerAvailabilitiesPage = React.createClass({
   getInitialState: function() {
     return {
       availabilities: []
@@ -67,7 +67,7 @@ var VolunteerAvailabilities = React.createClass({
       {
         icon: "edit",
         tooltip: {
-          text: __("event::editAvailabilityTooltip"),
+          text: __("volunteer::editAvailabilityTooltip"),
           overlayProps: {
             placement: "top"
           }
@@ -96,13 +96,13 @@ var VolunteerAvailabilities = React.createClass({
     // TableSorter Config
     var CONFIG = {
       defaultOrdering: [
-        "idUser",
+        "fullName",
         "startDate",
         "endDate",
         "actions"
       ],
       columns: {
-        idUser: {
+        fullName: {
           name: __("user"),
           cellGenerator: function(availability, i) {
             if(self.props.params.idUser == null){
@@ -111,11 +111,11 @@ var VolunteerAvailabilities = React.createClass({
                   to={"volunteerAvailabilitiesByUser"}
                   params={{idUser: availability.idUser}}
                 >
-                  {availability.firstName + " " + availability.lastName}
+                  {availability.fullName}
                 </Link>
               );
             }else{
-              var name = availability.firstName + " " + availability.lastName
+              var name = availability.fullName;
             }
 
             return (
@@ -138,7 +138,7 @@ var VolunteerAvailabilities = React.createClass({
             return (
               <MKListModButtons
                 defaultTooltipDelay={500}
-                buttons={self.actionsGenerator(event)}
+                buttons={self.actionsGenerator(availability)}
               />
             );
           }
@@ -163,4 +163,4 @@ var VolunteerAvailabilities = React.createClass({
   }
 });
 
-module.exports = VolunteerAvailabilities;
+module.exports = VolunteerAvailabilitiesPage;
