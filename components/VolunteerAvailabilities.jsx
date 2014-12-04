@@ -1,17 +1,16 @@
-var React             = require("react");
-var BSCol             = require("react-bootstrap/Col");
-var BSButton          = require("react-bootstrap/Button");
-var MKIcon            = require("mykoop-core/components/Icon");
-var MKTableSorter     = require("mykoop-core/components/TableSorter");
-var MKListModButtons  = require("mykoop-core/components/ListModButtons");
-var __                = require("language").__;
-var actions           = require("actions");
-var MKAlertTrigger    = require("mykoop-core/components/AlertTrigger");
-var formatDate        = require("language").formatDate;
-var localSession      = require("session").local;
-var router            = require("react-router");
-var getRouteName      = require("mykoop-utils/frontend/getRouteName");
-var Link              = require("react-router").Link;
+var React = require("react");
+var Link  = require("react-router").Link;
+
+var BSCol = require("react-bootstrap/Col");
+
+var MKTableSorter    = require("mykoop-core/components/TableSorter");
+var MKListModButtons = require("mykoop-core/components/ListModButtons");
+var MKAlertTrigger   = require("mykoop-core/components/AlertTrigger");
+
+var __         = require("language").__;
+var actions    = require("actions");
+var formatDate = require("language").formatDate;
+var util       = require("util");
 
 var VolunteerAvailabilities = React.createClass({
   getInitialState: function() {
@@ -34,24 +33,24 @@ var VolunteerAvailabilities = React.createClass({
 
       _.forEach(availabilities, function(availability) {
         availability.startDate = formatDate(new Date(availability.startDate), "LLL");
-        availability.endDate = formatDate(new Date(availability.startDate), "LLL");
+        availability.endDate = formatDate(new Date(availability.endDate), "LLL");
       });
 
       self.setState({availabilities: availabilities});
     };
 
     var data =  {
-      idUser : this.props.params.idUser, 
-      startDate : null, //Fixme : Use date from datetimepicker, 
+      idUser : this.props.params.idUser,
+      startDate : null, //Fixme : Use date from datetimepicker,
       endDate : null  //Fixme : Use date from datetimepicker,
     };
 
     var hasAdminPermissions = true; //Fixme : user real value
-    if(data.idUser != null){
+    if(data.idUser != null) {
       actions.availability.user.list({
         data : data
       }, functionCallback);
-    }else if(hasAdminPermissions){
+    } else if(hasAdminPermissions) {
       actions.availability.list({
         data : data
       }, functionCallback);
@@ -72,7 +71,7 @@ var VolunteerAvailabilities = React.createClass({
             placement: "top"
           }
         },
-        callback: function(){
+        callback: function() {
         }
       },
       {
@@ -105,24 +104,24 @@ var VolunteerAvailabilities = React.createClass({
         idUser: {
           name: __("user"),
           cellGenerator: function(availability, i) {
-            if(self.props.params.idUser == null){
+            var nameText = util.format("%d: %s %s",
+              availability.idUser,
+              availability.firstName,
+              availability.lastName
+            );
+            if(!self.props.params.idUser) {
               var name = (
                 <Link
                   to={"volunteerAvailabilitiesByUser"}
                   params={{idUser: availability.idUser}}
                 >
-                  {availability.firstName + " " + availability.lastName}
+                  {nameText}
                 </Link>
               );
-            }else{
-              var name = availability.firstName + " " + availability.lastName
+            } else {
+              var name = nameText;
             }
-
-            return (
-              <div key={i}>
-                  {name}
-              </div>
-            );
+            return name;
           }
         },
         startDate: {
