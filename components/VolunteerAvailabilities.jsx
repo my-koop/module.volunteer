@@ -26,7 +26,6 @@ var VolunteerAvailabilities = React.createClass({
   },
 
   updateList: function() {
-    MKSpinner.showGlobalSpinner();
     var self = this;
 
     var functionCallback = function (err, res) {
@@ -44,7 +43,6 @@ var VolunteerAvailabilities = React.createClass({
       });
 
       self.setState({availabilities: availabilities});
-      MKSpinner.hideGlobalSpinner();
     };
 
     var data =  {
@@ -63,10 +61,6 @@ var VolunteerAvailabilities = React.createClass({
         data : data
       }, functionCallback);
     }
-  },
-
-  componentWillMount: function() {
-    this.updateList();
   },
 
   actionsGenerator: function(availability) {
