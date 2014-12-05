@@ -1,6 +1,6 @@
 {
   startDate : "Date début",
   endDate : "Date fin",
-  editAvailabilityTooltip : "Éditer la disponibilité",
+  editAvailabilityTooltip : "Modifier la disponibilité",
   filter: "Filter",
 }

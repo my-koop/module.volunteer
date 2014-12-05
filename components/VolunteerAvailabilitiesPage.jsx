@@ -18,7 +18,7 @@ var BSButton          = require("react-bootstrap/Button");
 var MKSpinner         = require("mykoop-core/components/Spinner");
 
 
-var VolunteerAvailabilities = React.createClass({
+var AvailabilitiesPage = React.createClass({
   getInitialState: function() {
     return {
       availabilities: []
@@ -101,13 +101,13 @@ var VolunteerAvailabilities = React.createClass({
     // TableSorter Config
     var CONFIG = {
       defaultOrdering: [
-        "idUser",
+        "fullName",
         "startDate",
         "endDate",
         "actions"
       ],
       columns: {
-        idUser: {
+        fullName: {
           name: __("user"),
           cellGenerator: function(availability, i) {
             if(self.props.params.idUser == null){
@@ -116,11 +116,11 @@ var VolunteerAvailabilities = React.createClass({
                   to={"volunteerAvailabilitiesByUser"}
                   params={{idUser: availability.idUser}}
                 >
-                  {availability.firstName + " " + availability.lastName}
+                  {availability.fullName}
                 </Link>
               );
             }else{
-              var name = availability.firstName + " " + availability.lastName
+              var name = availability.fullName;
             }
 
             return (
@@ -219,4 +219,4 @@ var VolunteerAvailabilities = React.createClass({
   }
 });
 
-module.exports = VolunteerAvailabilities;
+module.exports = AvailabilitiesPage;
