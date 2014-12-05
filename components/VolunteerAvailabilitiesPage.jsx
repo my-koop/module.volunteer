@@ -12,15 +12,20 @@ var localSession      = require("session").local;
 var router            = require("react-router");
 var getRouteName      = require("mykoop-utils/frontend/getRouteName");
 var Link              = require("react-router").Link;
+var MKDateTimePicker  = require("mykoop-core/components/DateTimePicker");
+var BSTable           = require("react-bootstrap/Table");
+var BSButton          = require("react-bootstrap/Button");
+var MKSpinner         = require("mykoop-core/components/Spinner");
 
-var VolunteerAvailabilitiesPage = React.createClass({
+
+var AvailabilitiesPage = React.createClass({
   getInitialState: function() {
     return {
       availabilities: []
     }
   },
 
-  componentWillMount: function() {
+  updateList: function() {
     var self = this;
 
     var functionCallback = function (err, res) {
@@ -34,7 +39,7 @@ var VolunteerAvailabilitiesPage = React.createClass({
 
       _.forEach(availabilities, function(availability) {
         availability.startDate = formatDate(new Date(availability.startDate), "LLL");
-        availability.endDate = formatDate(new Date(availability.startDate), "LLL");
+        availability.endDate = formatDate(new Date(availability.endDate), "LLL");
       });
 
       self.setState({availabilities: availabilities});
@@ -42,8 +47,8 @@ var VolunteerAvailabilitiesPage = React.createClass({
 
     var data =  {
       idUser : this.props.params.idUser, 
-      startDate : null, //Fixme : Use date from datetimepicker, 
-      endDate : null  //Fixme : Use date from datetimepicker,
+      startDate : this.state.startDate, 
+      endDate : this.state.endDate
     };
 
     var hasAdminPermissions = true; //Fixme : user real value
@@ -134,7 +139,7 @@ var VolunteerAvailabilitiesPage = React.createClass({
         actions: {
           name: __("actions"),
           isStatic: true,
-          cellGenerator: function(availability) {
+          cellGenerator: function(availability, i) {
             return (
               <MKListModButtons
                 defaultTooltipDelay={500}
@@ -148,6 +153,57 @@ var VolunteerAvailabilitiesPage = React.createClass({
 
     return (
       <BSCol md={12}>
+        
+        <BSCol md={5}>
+          <div>
+            <BSTable>
+              <tr>
+                <td>
+                  <label htmlFor="startDatePicker">
+                    {__("volunteer::startDate")}
+                  </label>
+                  <MKDateTimePicker
+                    id="startDatePicker"
+                    value={this.state.startDate}
+                    onChange={function(date, str) {
+                      self.setState({
+                        startDate: date
+                      });
+                    }}
+                  />
+                </td>
+                <td>
+                  <label htmlFor="endDatePicker">
+                    {__("volunteer::endDate")}
+                  </label>
+                  <MKDateTimePicker
+                    id="endDatePicker"
+                    value={this.state.endDate}
+                    onChange={function(date, str) {
+                      self.setState({
+                        endDate: date
+                      });
+                    }}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <BSButton
+                    bsStyle="primary"
+                    key="filterBtn"
+                    onClick={function() {
+                      self.updateList();
+                    }}
+                  >
+                    {__("volunteer::filter")}
+                  </BSButton>
+                </td>
+              </tr>
+            </BSTable>
+          </div>
+        </BSCol>
+
         <div>
           <MKTableSorter
             config={CONFIG}
@@ -163,4 +219,4 @@ var VolunteerAvailabilitiesPage = React.createClass({
   }
 });
 
-module.exports = VolunteerAvailabilitiesPage;
+module.exports = AvailabilitiesPage;

@@ -1,5 +1,4 @@
 class Availability implements mkvolunteer.Availability {
-  public static COLUMNS_DB = ["idAvailability", "idUser", "startDate", "endDate"];
   public  id                  : number;
   public  idUser              : number;
   public  firstName           : string;

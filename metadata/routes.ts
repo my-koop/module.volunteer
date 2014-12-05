@@ -7,14 +7,14 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
 
   metaData.addFrontendRoute({
     idPath: ["dashboard", "volunteer", "volunteerAvailabilities"],
-    component: "VolunteerAvailabilitiesPage",
+    component: "AvailabilitiesPage",
     name: "volunteerAvailabilities",
     path: "list/",
   });
 
   metaData.addFrontendRoute({
     idPath: ["dashboard", "volunteer", "volunteerAvailabilitiesByUser"],
-    component: "VolunteerAvailabilitiesPage",
+    component: "AvailabilitiesPage",
     name: "volunteerAvailabilitiesByUser",
     path: "list/user/:idUser",
   });
