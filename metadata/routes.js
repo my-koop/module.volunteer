@@ -7,13 +7,13 @@ function addRoutes(metaData) {
         idPath: ["dashboard", "volunteer", "volunteerAvailabilities"],
         component: "AvailabilitiesPage",
         name: "volunteerAvailabilities",
-        path: "list/",
+        path: "availabilities/",
     });
     metaData.addFrontendRoute({
         idPath: ["dashboard", "volunteer", "volunteerAvailabilitiesByUser"],
         component: "AvailabilitiesPage",
         name: "volunteerAvailabilitiesByUser",
-        path: "list/user/:idUser",
+        path: "availabilities/user/:idUser",
     });
     metaData.addFrontendRoute({
         idPath: ["dashboard", "volunteer", "addAvailabilities"],
