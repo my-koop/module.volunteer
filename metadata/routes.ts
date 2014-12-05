@@ -13,4 +13,11 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
     name: "volunteerAvailabilitiesByUser",
     path: "volunteer/list/user/:idUser",
   });
+
+  metaData.addFrontendRoute({
+    idPath: ["dashboard", "volunteer", "addAvailabilities"],
+    component: "AddAvailabilitiesPage",
+    name: "addVolunteerAvailabilitiesPage",
+    path: "availabilities/add/",
+  });
 }
