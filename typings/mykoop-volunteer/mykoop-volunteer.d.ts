@@ -4,8 +4,36 @@
 // Definitions: https://github.com/my-koop/type.definitions
 
 /// <reference path="../mykoop/mykoop.d.ts" />
+/// <reference path="./dbQueryStruct.d.ts" />
+/// <reference path="./interfaces.d.ts" />
 declare module mkvolunteer {
   export interface Module extends mykoop.IModule {
+    updateAvailability(
+      updateData: AvailabilityInterfaces.UpdateAvailabilityData,
+      callback: (err: Error, result?: boolean) => void
+    );
+
+    getAvailability(
+      getAvailabilityData: AvailabilityInterfaces.GetAvailabilityData,
+      callback: (err: Error, result?: Availability) => void
+    );
+
+    getAvailabilities(                
+      getAvailabilitiesData: AvailabilityInterfaces.GetAvailabilitiesData,
+      callback: (err: Error, result?: Availability[]) => void
+    );
+
+    addAvailability(
+      addAvailabilityData: AvailabilityInterfaces.AddAvailabilityData, 
+      callback: (err?: Error) => void
+    );
+  }
+
+  export interface Availability {
+    id                  : number;
+    idUser              : number;
+    startDate           : Date;
+    endDate             : Date;
   }
 }
 
