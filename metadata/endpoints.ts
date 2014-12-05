@@ -11,7 +11,7 @@ var endpoints = {
       method: "get"
     },
     update: {
-      path: "/availability/update/",
+      path: "/availability/:idAvailability",
       method: "post",
       validation: {
         resolve: "validation",
