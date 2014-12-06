@@ -169,6 +169,9 @@ var AvailabilitiesPage = React.createClass({
 
     return (
       <BSCol md={12}>
+        <h1 className="pull-left">
+          {__("volunteer::availabilitiesWelcome")}
+        </h1>
         <div>
           <MKTableSorter
             config={CONFIG}
