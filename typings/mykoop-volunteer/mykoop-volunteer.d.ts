@@ -4,8 +4,32 @@
 // Definitions: https://github.com/my-koop/type.definitions
 
 /// <reference path="../mykoop/mykoop.d.ts" />
+/// <reference path="./interfaces.d.ts" />
 declare module mkvolunteer {
   export interface Module extends mykoop.IModule {
+    getAvailabilities(                
+      getAvailabilitiesData: AvailabilityInterfaces.GetAvailabilitiesData,
+      callback: (err: Error, result?: Availability[]) => void
+    );
+  }
+
+  export interface Availability {
+    idAvailability      : number;
+    idUser              : number;
+    startSunday         : String;
+    endSunday           : String;
+    startMonday         : String;
+    endMonday           : String;
+    startTuesday        : String;
+    endTuesday          : String;
+    startWednesday      : String;
+    endWednesday        : String;
+    startThursday       : String;
+    endThursday         : String;
+    startFriday         : String;
+    endFriday           : String;
+    startSaturday       : String;
+    endSaturday         : String;
   }
 }
 
