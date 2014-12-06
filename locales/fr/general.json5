@@ -1,2 +1,9 @@
 {
+  sunday    : "Dimanche",
+  monday    : "Lundi",
+  tuesday   : "Mardi",
+  wednesday : "Mercredi",
+  thursday  : "Tuesday",
+  friday    : "Vendredi",
+  saturday  : "Samedi",
 }
