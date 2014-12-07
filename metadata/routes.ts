@@ -3,6 +3,13 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
   metaData.addFrontendRoute({
     idPath: ["dashboard", "volunteer"],
     path: "volunteer/",
+    permissions: {
+      volunteering: {
+        availabilities: {
+          view: true
+        }
+      }
+    },
   });
 
   metaData.addFrontendRoute({
@@ -10,6 +17,13 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
     component: "AvailabilitiesPage",
     name: "volunteerAvailabilities",
     path: "availabilities/",
+    permissions: {
+      volunteering: {
+        availabilities: {
+          view: true
+        }
+      }
+    },
   });
 
 }
