@@ -12,7 +12,14 @@ export function attachControllers(
 
   binder.attach(
     {
-      endPoint: endpoints.availability.list
+      endPoint: endpoints.availability.list,
+      permissions: {
+        volunteering: {
+          availabilities: {
+            view: true
+          },
+        }
+      }
     },
     getAvailabilities
   );

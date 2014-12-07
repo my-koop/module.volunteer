@@ -1,0 +1,10 @@
+{
+  volunteering: {
+    __description: "Bénévolat",
+    availabilities: {
+      __description: "Disponibilités",
+      provide: "Fournir ses propres disponibilités",
+      view: "Afficher les disponibilités de tout bénévole",
+    },
+  }
+}

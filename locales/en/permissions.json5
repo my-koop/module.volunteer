@@ -1,0 +1,10 @@
+{
+  volunteering: {
+    __description: "Volunteering",
+    availabilities: {
+      __description: "Availabilities",
+      provide: "Provide own availabilities",
+      view: "Display the availabilities of any volunteer",
+    },
+  }
+}
