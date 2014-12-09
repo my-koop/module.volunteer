@@ -5,6 +5,7 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
     path: "volunteer"
   });
 
+  /*FIXME: Make it work.
   metaData.addFrontendRoute({
     idPath: ["dashboard", "volunteer", "availabilities"],
     component: "AvailabilitiesPage",
@@ -18,6 +19,7 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
       }
     },
   });
+  */
 
   metaData.addFrontendRoute({
     idPath: ["dashboard", "volunteer", "report"],

@@ -3,19 +3,21 @@ function addRoutes(metaData) {
         idPath: ["dashboard", "volunteer"],
         path: "volunteer"
     });
+    /*FIXME: Make it work.
     metaData.addFrontendRoute({
-        idPath: ["dashboard", "volunteer", "availabilities"],
-        component: "AvailabilitiesPage",
-        name: "volunteerAvailabilities",
-        path: "availabilities",
-        permissions: {
-            volunteering: {
-                availabilities: {
-                    view: true
-                }
-            }
-        },
+      idPath: ["dashboard", "volunteer", "availabilities"],
+      component: "AvailabilitiesPage",
+      name: "volunteerAvailabilities",
+      path: "availabilities",
+      permissions: {
+        volunteering: {
+          availabilities: {
+            view: true
+          }
+        }
+      },
     });
+    */
     metaData.addFrontendRoute({
         idPath: ["dashboard", "volunteer", "report"],
         component: "TimeWorkedReport",
