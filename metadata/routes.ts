@@ -32,7 +32,8 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
           report: true
         }
       }
-    }
+    },
+    i18nKey: "volunteer::timeWorkedTab"
   });
 
 }

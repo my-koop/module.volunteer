@@ -29,7 +29,8 @@ function addRoutes(metaData) {
                     report: true
                 }
             }
-        }
+        },
+        i18nKey: "volunteer::timeWorkedTab"
     });
 }
 exports.addRoutes = addRoutes;
