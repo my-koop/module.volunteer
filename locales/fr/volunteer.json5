@@ -1,5 +1,6 @@
 {
   volunteers: "Bénévoles",
+  show: "Afficher",
   availabilitiesWelcome : "Disponibilités",
 
   //Time worked component
