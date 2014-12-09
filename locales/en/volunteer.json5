@@ -10,7 +10,6 @@
   timeWorkedRequest_success: "Your hours have been entered successfully.",
 
   timeWorkedReportHeader: "Worked hours report",
-  timeWorkedReportExplanation : "",
   timeWorkedReportNoResult: "No volunteer entered work hours during this date range.",
   timeWorkedReportID : "ID",
   timeWorkedReportName: "Name",

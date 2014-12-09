@@ -113,7 +113,6 @@ var TimeWorkedReport = React.createClass({
         <BSRow>
           <BSCol xs={12}>
             <h1> {__("volunteer::timeWorkedReportHeader")} </h1>
-            <p> {__("volunteer::timeWorkedReportExplanation")} </p>
           </BSCol>
         </BSRow>
         <BSRow>

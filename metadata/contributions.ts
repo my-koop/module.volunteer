@@ -8,7 +8,14 @@ var contributions = {
           value: "TimeWorked"
         },
         hash: "timeworked",
-        priority: 225
+        priority: 225,
+        permissions: {
+          volunteering: {
+            hours: {
+              enter: true
+            }
+          }
+        }
       }
     }
   }

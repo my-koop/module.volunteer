@@ -27,12 +27,20 @@ export function attachControllers(
   binder.attach(
     {
       endPoint: endpoints.timeworked.add,
+      validation: validation.addTimeWorked,
+      permissions: {
+        volunteering: {
+          hours: {
+            enter: true
+          }
+        }
+      }
     },
     binder.makeSimpleController(volunteer.addTimeWorked, function(req) {
       return {
         idUser: req.session.user.id,
-        date: req.param("date"),
-        duration: parseInt(req.param("duration"))
+        date: new Date(req.param("date")),
+        duration: parseInt(req.param("duration")) || 0
       };
     })
   )

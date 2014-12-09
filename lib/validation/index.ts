@@ -1,21 +1,23 @@
 // see http://validatejs.org/ for documentation on how to do contraints
 var validate = require("mykoop-utils/common").validation;
 
-var updateDataConstraint = {
-  id: {
-    presence: true,
-    numericality: {
-      onlyInteger: true,
-      greaterThan: 0
+
+export function addTimeWorked(obj) {
+  var addTimeWorkedConstraint = {
+    duration: {
+      presence: {message: "^notFound"},
+      numericality: {
+        onlyInteger: {message: "^notInteger"},
+        greaterThan: 0,
+        message: "^invalid"
+      }
+    },
+    date: {
+      datetime: {
+        message: "^invalid",
+        latest: new Date()
+      },
     }
-  },
-  value: {
-    presence: true,
-    length: {
-      minimum: 5
-    }
-  }
-}
-export function get1(obj) {
-  return validate(obj, updateDataConstraint);
+  };
+  return validate(obj, addTimeWorkedConstraint);
 }

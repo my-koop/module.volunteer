@@ -1,30 +1,30 @@
-var React                 = require("react");
-var BSInput               = require("react-bootstrap/Input");
-var BSButton              = require("react-bootstrap/Button");
-var BSCol                 = require("react-bootstrap/Col");
-var BSGrid                = require("react-bootstrap/Grid");
-var BSRow                 = require("react-bootstrap/Row");
+var React = require("react");
 
-var __                    = require("language").__;
-var actions               = require("actions");
-var MKAlert               = require("mykoop-core/components/Alert");
+var BSInput  = require("react-bootstrap/Input");
+var BSButton = require("react-bootstrap/Button");
+var BSCol    = require("react-bootstrap/Col");
+var BSGrid   = require("react-bootstrap/Grid");
+var BSRow    = require("react-bootstrap/Row");
+
 var MKDateTimePicker      = require("mykoop-core/components/DateTimePicker");
 var MKConfirmationTrigger = require("mykoop-core/components/ConfirmationTrigger");
-var formatDate            = require("language").formatDate;
+var MKFeedbacki18nMixin   = require("mykoop-core/components/Feedbacki18nMixin");
+
+var formatDate = require("language").formatDate;
+var __         = require("language").__;
+var actions    = require("actions");
 
 
 var TimeWorked = React.createClass({
+  mixins: [MKFeedbacki18nMixin],
 
   propTypes: {
     userId: React.PropTypes.number.isRequired,
   },
 
-
-  getInitialState: function(){
+  getInitialState: function() {
     return( {
       data: {},
-      message: null,
-      messageStyle: null
     });
   },
 
@@ -41,37 +41,30 @@ var TimeWorked = React.createClass({
     }
   },
 
-  setMessage: function(Message, isError) {
-    this.setState({
-      message: Message,
-      messageStyle: (isError) ? "warning" : "success"
-    })
-  },
-
-  onSubmit: function(){
+  onSubmit: function() {
     var self = this;
+    this.clearFeedback();
     actions.timeworked.add({
-      options: {
-        i18n: {}
-      },
+      i18nErrors: {},
       data: {
         duration: self.state.data.duration,
         date: self.state.data.workdate
       }
-    },function(err) {
-      self.setMessage(__("volunteer::timeWorkedRequest", {context: err? "fail": "success"}))
+    }, function(err) {
+      if(err) {
+        return self.setFeedback(err.i18n, "danger");
+      }
+      self.setFeedback({key: "volunteer::timeWorkedRequest_success"}, "success");
     })
   },
 
-  render: function(){
+  render: function() {
     var self = this;
     return (
       <div>
        <BSRow>
           <BSCol xs={12}>
-            <MKAlert bsStyle={this.state.messageStyle} key="feedback">
-              {this.state.message}
-            </MKAlert>
+            {this.renderFeedback()}
           </BSCol>
         </BSRow>
         <BSRow>
@@ -81,11 +74,10 @@ var TimeWorked = React.createClass({
             </label>
             <MKDateTimePicker
               id="workdate"
-              time={false}
-              format="yyyy-MM-dd"
               max={new Date()}
-              onChange={function(date, str){
-                self.handleFieldChange("workdate", str);
+              value={self.state.data.workdate}
+              onChange={function(date, str) {
+                self.handleFieldChange("workdate", date);
               }}
             />
           </BSCol>

@@ -30,7 +30,14 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
     idPath: ["dashboard", "volunteer", "report"],
     component: "TimeWorkedReport",
     name: "timeWorkedReport",
-    path: "volunteer/report/"
+    path: "report/",
+    permissions: {
+      volunteering: {
+        hours: {
+          report: true
+        }
+      }
+    }
   });
 
 }

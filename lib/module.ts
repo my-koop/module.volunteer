@@ -60,13 +60,14 @@ class Module extends utils.BaseModule implements mkvolunteer.Module {
     connection: mysql.IConnection,
     params: AvailabilityInterfaces.TimeWorked,
     callback: ( err: Error) => void
-  ){
+  ) {
     connection.query(
-        "INSERT INTO timeworked SET ?",
-        [params],
-        function(err, rows){
-          return callback(err && new DatabaseError(err));
-      });
+      "INSERT INTO timeworked SET ?",
+      [params],
+      function(err, rows){
+        return callback(err && new DatabaseError(err));
+      }
+    );
   }
 
   timeWorkedReport(

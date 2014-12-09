@@ -1,9 +1,13 @@
 var permissions = {
     volunteering: {
-        availabilities: {
-            provide: true,
-            view: true,
-        },
+        /*availabilities: {
+          provide: true,
+          view: true,
+        },*/
+        hours: {
+            enter: true,
+            report: true
+        }
     },
 };
 module.exports = permissions;

@@ -6,5 +6,10 @@
       provide: "Fournir ses propres disponibilités",
       view: "Afficher les disponibilités de tout bénévole",
     },
+    hours: {
+      __description: "Feuilles de temps",
+      enter: "Entrer des heures travaillées",
+      report: "Générer les rapports d'heures travaillées",
+    }
   }
 }

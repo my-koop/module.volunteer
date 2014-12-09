@@ -27,7 +27,14 @@ function addRoutes(metaData) {
         idPath: ["dashboard", "volunteer", "report"],
         component: "TimeWorkedReport",
         name: "timeWorkedReport",
-        path: "volunteer/report/"
+        path: "report/",
+        permissions: {
+            volunteering: {
+                hours: {
+                    report: true
+                }
+            }
+        }
     });
 }
 exports.addRoutes = addRoutes;
