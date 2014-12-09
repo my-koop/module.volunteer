@@ -1,4 +1,5 @@
 {
+  volunteers: "Bénévoles",
   availabilitiesWelcome : "Disponibilités",
 
   //Time worked component
@@ -13,5 +14,9 @@
   timeWorkedReportNoResult: "Aucun bénévole n'a enregistré d'heures pour cette période.",
   timeWorkedReportID : "ID",
   timeWorkedReportName: "Nom",
-  timeWorkedReportHours: "Heures travaillées"
+  timeWorkedReportHours: "Heures travaillées",
+
+  sidebar: {
+    volunteers: "$t(volunteer::volunteers)"
+  },
 }
