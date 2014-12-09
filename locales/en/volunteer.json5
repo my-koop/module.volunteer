@@ -1,4 +1,5 @@
 {
+  volunteers: "Volunteers",
   availabilitiesWelcome : "Availabilities",
 
   //Time worked component
@@ -13,5 +14,9 @@
   timeWorkedReportNoResult: "No volunteer entered work hours during this date range.",
   timeWorkedReportID : "ID",
   timeWorkedReportName: "Name",
-  timeWorkedReportHours: "Hours worked"
+  timeWorkedReportHours: "Hours worked",
+
+  sidebar: {
+    volunteers: "$t(volunteer::volunteers)"
+  },
 }

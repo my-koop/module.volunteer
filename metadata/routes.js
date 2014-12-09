@@ -1,20 +1,13 @@
 function addRoutes(metaData) {
     metaData.addFrontendRoute({
         idPath: ["dashboard", "volunteer"],
-        path: "volunteer/",
-        permissions: {
-            volunteering: {
-                availabilities: {
-                    view: true
-                }
-            }
-        },
+        path: "volunteer"
     });
     metaData.addFrontendRoute({
         idPath: ["dashboard", "volunteer", "availabilities"],
         component: "AvailabilitiesPage",
         name: "volunteerAvailabilities",
-        path: "availabilities/",
+        path: "availabilities",
         permissions: {
             volunteering: {
                 availabilities: {
@@ -27,7 +20,7 @@ function addRoutes(metaData) {
         idPath: ["dashboard", "volunteer", "report"],
         component: "TimeWorkedReport",
         name: "timeWorkedReport",
-        path: "report/",
+        path: "report",
         permissions: {
             volunteering: {
                 hours: {
