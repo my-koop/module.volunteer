@@ -1,3 +1,11 @@
 {
   availabilitiesWelcome : "Availabilities",
+
+  //Time worked component
+  timeWorkedTab : "Hours worked",
+  timeWorkedTimeLabel : "Hours worked",
+  timeWorkedDateLabel : "Date worked",
+  timeWorkedSubmit : "Send",
+  timeWorkedRequest_fail: "Unable to send request",
+  timeWorkedRequest_success: "Your hours worked have been entered successfully."
 }

@@ -7,9 +7,13 @@
 /// <reference path="./interfaces.d.ts" />
 declare module mkvolunteer {
   export interface Module extends mykoop.IModule {
-    getAvailabilities(                
+    getAvailabilities(
       getAvailabilitiesData: AvailabilityInterfaces.GetAvailabilitiesData,
       callback: (err: Error, result?: Availability[]) => void
+    );
+    addTimeWorked(
+      params: AvailabilityInterfaces.TimeWorked,
+      callback: (err: Error) => void
     );
   }
 

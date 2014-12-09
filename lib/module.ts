@@ -27,7 +27,7 @@ class Module extends utils.BaseModule implements mkvolunteer.Module {
       var queryParams = [];
 
       var query = connection.query(
-        "SELECT u.firstname as firstName, u.lastname as lastName, startSunday, endSunday, startMonday, endMonday, startTuesday, " + 
+        "SELECT u.firstname as firstName, u.lastname as lastName, startSunday, endSunday, startMonday, endMonday, startTuesday, " +
         "endTuesday, startWednesday, endWednesday, startThursday, endThursday, " +
         "startFriday, endFriday, startSaturday, endSaturday FROM availabilities a " +
         "JOIN user u ON u.id = a.idUser",
@@ -46,6 +46,28 @@ class Module extends utils.BaseModule implements mkvolunteer.Module {
           callback(null, availabilities);
       });
     });
+  }
+
+  addTimeWorked(
+    params: AvailabilityInterfaces.TimeWorked,
+    callback: ( err: Error) => void)
+  {
+    logger.debug(params, {});
+    this.db.getConnection(function(err, connection, cleanup) {
+      if(err) {
+        return callback(new DatabaseError(err));
+      }
+
+      var query = connection.query(
+        "INSERT INTO timeworked SET ?",
+        [params],
+        function(err, rows){
+          cleanup();
+          return callback(err && new DatabaseError(err));
+
+      });
+    });
+
   }
 }
 
