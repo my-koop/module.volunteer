@@ -9,4 +9,9 @@ declare module AvailabilityInterfaces {
     duration: number;
     date: Date;
   }
+
+  export interface TimeWorkedReport {
+    toDate: Date;
+    fromDate: Date;
+  }
 }

@@ -9,6 +9,10 @@ var endpoints = {
     add: {
       path: "/volunteer/timeworked/",
       method: "post"
+    },
+    report: {
+      path: "/volunteer/timeworked/report/",
+      method: "get"
     }
   }
 }

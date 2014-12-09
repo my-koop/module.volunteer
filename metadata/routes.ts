@@ -26,4 +26,11 @@ export function addRoutes(metaData: utils.MetaDataBuilder) {
     },
   });
 
+  metaData.addFrontendRoute({
+    idPath: ["dashboard", "volunteer", "report"],
+    component: "TimeWorkedReport",
+    name: "timeWorkedReport",
+    path: "volunteer/report/"
+  });
+
 }

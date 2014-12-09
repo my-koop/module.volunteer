@@ -15,6 +15,20 @@ declare module mkvolunteer {
       params: AvailabilityInterfaces.TimeWorked,
       callback: (err: Error) => void
     );
+    __addTimeWorked(
+      connection: mysql.IConnection,
+      params: AvailabilityInterfaces.TimeWorked,
+      callback: (err: Error) => void
+    );
+    timeWorkedReport(
+      params: AvailabilityInterfaces.TimeWorkedReport,
+      callback: (err: Error, any) => void
+    );
+    __timeWorkedReport(
+      connection: mysql.IConnection,
+      params: AvailabilityInterfaces.TimeWorkedReport,
+      callback: (err: Error, any) => void
+    );
   }
 
   export interface Availability {

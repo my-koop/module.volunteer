@@ -36,4 +36,16 @@ export function attachControllers(
       };
     })
   )
+
+  binder.attach(
+    {
+      endPoint: endpoints.timeworked.report,
+    },
+    binder.makeSimpleController(volunteer.timeWorkedReport, function(req) {
+      return {
+        fromDate: new Date(req.param("fromDate")),
+        toDate: new Date(req.param("toDate"))
+      };
+    })
+  )
 }

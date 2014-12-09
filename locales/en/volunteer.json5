@@ -7,5 +7,12 @@
   timeWorkedDateLabel : "Date worked",
   timeWorkedSubmit : "Send",
   timeWorkedRequest_fail: "Unable to send request",
-  timeWorkedRequest_success: "Your hours have been entered successfully."
+  timeWorkedRequest_success: "Your hours have been entered successfully.",
+
+  timeWorkedReportHeader: "Worked hours report",
+  timeWorkedReportExplanation : "",
+  timeWorkedReportNoResult: "No volunteer entered work hours during this date range.",
+  timeWorkedReportID : "ID",
+  timeWorkedReportName: "Name",
+  timeWorkedReportHours: "Hours worked"
 }

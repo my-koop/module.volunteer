@@ -7,5 +7,11 @@
   timeWorkedDateLabel : "Date de travail",
   timeWorkedSubmit : "Envoyer",
   timeWorkedRequest_fail: "Impossible d'effectuer votre requête",
-  timeWorkedRequest_success: "Les heures ont été entrées dans le système."
+  timeWorkedRequest_success: "Les heures ont été entrées dans le système.",
+
+  timeWorkedReportHeader : "Rapports des heures travaillées",
+  timeWorkedReportNoResult: "Aucun bénévole n'a enregistré d'heures pour cette période.",
+  timeWorkedReportID : "ID",
+  timeWorkedReportName: "Nom",
+  timeWorkedReportHours: "Heures travaillées"
 }
