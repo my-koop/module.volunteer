@@ -1,3 +1,17 @@
 {
   availabilitiesWelcome : "Availabilities",
+
+  //Time worked component
+  timeWorkedTab : "Hours worked",
+  timeWorkedTimeLabel : "Hours worked",
+  timeWorkedDateLabel : "Date worked",
+  timeWorkedSubmit : "Send",
+  timeWorkedRequest_fail: "Unable to send request",
+  timeWorkedRequest_success: "Your hours have been entered successfully.",
+
+  timeWorkedReportHeader: "Worked hours report",
+  timeWorkedReportNoResult: "No volunteer entered work hours during this date range.",
+  timeWorkedReportID : "ID",
+  timeWorkedReportName: "Name",
+  timeWorkedReportHours: "Hours worked"
 }

@@ -23,5 +23,18 @@ function addRoutes(metaData) {
             }
         },
     });
+    metaData.addFrontendRoute({
+        idPath: ["dashboard", "volunteer", "report"],
+        component: "TimeWorkedReport",
+        name: "timeWorkedReport",
+        path: "report/",
+        permissions: {
+            volunteering: {
+                hours: {
+                    report: true
+                }
+            }
+        }
+    });
 }
 exports.addRoutes = addRoutes;

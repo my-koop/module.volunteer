@@ -6,5 +6,10 @@
       provide: "Provide own availabilities",
       view: "Display the availabilities of any volunteer",
     },
+    hours: {
+      __description: "Time sheets",
+      enter: "Enter hours worked",
+      report: "Generate worked hours report",
+    }
   }
 }
